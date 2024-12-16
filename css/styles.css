@@ -6,6 +6,7 @@
 
 :root {
   --primary-color: #fcf5e9;
+  --dark-color: #333;
   --container-normal: 1100px;
   --container-wide: 1400px;
   --container-narrow: 900px;
@@ -32,10 +33,50 @@ img {
 /* Utility Classes */
 .bg-primary {
   background: var(--primary-color);
+  color: #333;
 }
 
-/* container */
+.bg-dark {
+  background: var(--dark-color);
+  color: #fff;
+}
 
+.bg-dark .bg-primary {
+  padding: 0 0.3rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border: 1px solid #333;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #333;
+  color: #fff;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.section-heading {
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Container */
 .container {
   max-width: var(--container-normal);
   margin: 0 auto;
@@ -50,8 +91,7 @@ img {
   max-width: var(--container-narrow);
 }
 
-/* header */
-
+/* Header */
 .header {
   margin: 1.5rem auto;
 }
@@ -99,8 +139,27 @@ img {
   font-weight: normal;
 }
 
-/* Media queries*/
+.gallery-flex {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 
+.gallery-item {
+  width: calc(33.333% - 20px);
+  border-radius: 10px;
+}
+
+.gallery-item img {
+  border-radius: 10px;
+}
+
+.gallery-item:hover {
+  opacity: 0.9;
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
   .header .header-flex {
     flex-direction: column;
@@ -113,5 +172,9 @@ img {
 
   .hero h2 {
     font-size: 1.8rem;
+  }
+
+  .gallery-item {
+    width: calc(50% - 20px);
   }
 }
